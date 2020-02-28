@@ -1,0 +1,10 @@
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\bin\Debug\Automobiles.Test.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\bin\Debug\Automobiles.Test.pdb
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\bin\Debug\Automobiles.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\bin\Debug\Automobiles.pdb
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\obj\Debug\Automobiles.Test.csprojAssemblyReference.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\obj\Debug\Automobiles.Test.csproj.CoreCompileInputs.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\obj\Debug\Automobiles.Test.csproj.CopyComplete
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\obj\Debug\Automobiles.Test.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles.Test\obj\Debug\Automobiles.Test.pdb

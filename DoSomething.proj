@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+ 
+
+  <Target Name="CleanDir">
+    <RemoveDir Directories="$(OutputPath)" Condition="Exists($(OutputPath))" />
+  </Target>
+
+  <Target Name="BuildSolution" DependsOnTargets="CleanDir;SetVersions">
+    <MSBuild Projects="$(SolutionFileName)" Properties="Configuration=Release;OutputPath=$(OutputPath)"></MSBuild>
+  </Target>
+
+  <Target Name="RunTests" DependsOnTargets="BuildSolution">
+    <ItemGroup>
+      <TestDLLs Include="$(OutputPath)\*.Test.dll"></TestDLLs>
+    </ItemGroup>
+
+    <Exec Command="MStest.exe @(TestDLLs->'/testcontainer:%(FullPath)', ' ')"
+          IgnoreExitCode="false"
+          WorkingDirectory="$(OutputPath)">
+    </Exec>
+  </Target>
+
+  <Target Name="SetVersions" >
+    <ItemGroup>
+      <AssemblyInfoFiles Include="$(ProjectDir)\**\AssemblyInfo.cs" />
+    </ItemGroup>
+
+    <Message Text="Changing version numbers on:" Importance="high"></Message>
+    <Message Text="%(AssemblyInfoFiles.FullPath)" Importance="high"></Message>
+
+    <MSBuild.ExtensionPack.Framework.AssemblyInfo AssemblyInfoFiles="@(AssemblyInfoFiles)"
+                                                  AssemblyFileMajorVersion="$(MajorVersion)"
+                                                  AssemblyFileMinorVersion="$(MinorVersion)">
+    </MSBuild.ExtensionPack.Framework.AssemblyInfo>
+
+  </Target>
+
+  <Target Name="Deploy" DependsOnTargets="RunTests">
+    <PropertyGroup>
+      <OutputPathWebFiles>$(OutputPath)\_PublishedWebsites\Auto.Web</OutputPathWebFiles>
+      <DeployDir>D:\workspace\MSBuild_Examples\Auto_Project_Site</DeployDir>
+      <WebSiteName>AutoWebDemo</WebSiteName>
+      <AppPoolName>DefaultAppPool</AppPoolName>
+      <AppName>AutoWebDemo</AppName>
+    </PropertyGroup>
+
+    <!--Make Site directory for storing the deployable artifacts to IIS -->
+    <MakeDir Directories="$(DeployDir)" Condition="!Exists($(DeployDir))"></MakeDir>
+
+    <!-- Create application in IIS -->
+    <ItemGroup>
+      <Application Include="/$(AppName)">
+        <PhysicalPath>$(DeployDir)</PhysicalPath>
+        <AppPool>$(AppPoolName)</AppPool>
+      </Application>
+    </ItemGroup>
+
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="AddApplication"
+                                           Name="$(WebSiteName)"
+                                           Applications="@(Application)"
+                                           ContinueOnError="true">
+    </MSBuild.ExtensionPack.Web.Iis7Website>
+
+    <!-- Stop IIS -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Stop" Name="$(WebSiteName)"></MSBuild.ExtensionPack.Web.Iis7Website>
+
+    <!-- Copy Physical Files -->
+    <MSBuild.ExtensionPack.FileSystem.RoboCopy
+      Source="$(OutputPathWebFiles)"
+      Destination="$(DeployDir)"
+      Files="*.*"
+      Options="/E /PURGE">
+    </MSBuild.ExtensionPack.FileSystem.RoboCopy>
+
+    <!-- Start IIS -->
+    <MSBuild.ExtensionPack.Web.Iis7Website TaskAction="Start" Name="$(WebSiteName)"></MSBuild.ExtensionPack.Web.Iis7Website>
+
+
+  </Target>
+
+  <Import Project="Common.targets"/>
+  <Import Project="PsBuildTasks.tasks"/>
+  <Import Project="C:\Program Files (x86)\MSBuild\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+
+</Project>

@@ -1,0 +1,8 @@
+D:\workspace\MSBuild_Examples\Auto_Project_Artifacts\Auto.Web.dll.config
+D:\workspace\MSBuild_Examples\Auto_Project_Artifacts\Auto.Web.dll
+D:\workspace\MSBuild_Examples\Auto_Project_Artifacts\Auto.Web.pdb
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Auto.Web\obj\Release\Auto.Web.csprojAssemblyReference.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Auto.Web\obj\Release\Auto.Web.csproj.CoreCompileInputs.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Auto.Web\obj\Release\Auto.Web.csproj.CopyComplete
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Auto.Web\obj\Release\Auto.Web.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Auto.Web\obj\Release\Auto.Web.pdb

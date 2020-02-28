@@ -1,0 +1,6 @@
+D:\workspace\MSBuild_Examples\Auto_Project_Artifacts\Automobiles.dll
+D:\workspace\MSBuild_Examples\Auto_Project_Artifacts\Automobiles.pdb
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles\obj\Release\Automobiles.csprojAssemblyReference.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles\obj\Release\Automobiles.csproj.CoreCompileInputs.cache
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles\obj\Release\Automobiles.dll
+D:\workspace\MSBuild_Examples\materials\msbuild-4-exercise-files\code\before\Autos\Automobiles\obj\Release\Automobiles.pdb
