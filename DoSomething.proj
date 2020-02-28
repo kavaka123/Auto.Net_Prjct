@@ -11,11 +11,15 @@
   </Target>
 
   <Target Name="RunTests" DependsOnTargets="BuildSolution">
+    <PropertyGroup>
+      <MStest.exe>C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\MSTest.exe</MStest.exe>
+    </PropertyGroup>
+
     <ItemGroup>
       <TestDLLs Include="$(OutputPath)\*.Test.dll"></TestDLLs>
     </ItemGroup>
 
-    <Exec Command="MStest.exe @(TestDLLs->'/testcontainer:%(FullPath)', ' ')"
+    <Exec Command="$(MStest.exe) @(TestDLLs->'/testcontainer:%(FullPath)', ' ')"
           IgnoreExitCode="false"
           WorkingDirectory="$(OutputPath)">
     </Exec>
